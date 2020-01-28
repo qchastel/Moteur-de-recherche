@@ -4,9 +4,11 @@ public class Frequences {
 	private int nbOccurence ;
 	private double frequence ;
 	private double tfidf;
-	
 	public int getNbOccurence() {
 		return nbOccurence;
+	}
+	public void setNbOccurence(int nbOccurence) {
+		this.nbOccurence = nbOccurence;
 	}
 	
 	public double getFrequence() {

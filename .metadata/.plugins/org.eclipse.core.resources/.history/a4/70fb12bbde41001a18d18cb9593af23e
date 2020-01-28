@@ -1,0 +1,8 @@
+
+public class Frequences {
+	
+	private int nbOccurence ;
+	private double frequence ;
+	private double tfidf;
+	
+}
