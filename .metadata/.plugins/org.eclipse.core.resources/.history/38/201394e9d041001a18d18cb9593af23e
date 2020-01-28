@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Crowler {
+	
+	public Index i;
+	public IndexInversé ii;
+	
+	public Crowler() {
+		i=new Index();
+		ii=new IndexInversé();
+	}
+	
+}

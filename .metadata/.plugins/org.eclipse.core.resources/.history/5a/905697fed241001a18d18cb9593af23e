@@ -1,0 +1,10 @@
+
+import java.util.HashMap;
+import java.util.TreeSet;
+
+public class IndexInversé {
+	
+
+	public TreeSet<HashMap<String,Integer>> indexInverse;
+
+}

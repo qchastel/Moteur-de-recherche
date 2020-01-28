@@ -1,0 +1,15 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.TreeSet;
+
+public class Index {
+
+	public TreeSet<Document> doc;
+	
+	
+
+	
+	
+	
+	
+}

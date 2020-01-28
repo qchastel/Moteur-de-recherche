@@ -1,0 +1,13 @@
+import java.io.File;
+import java.nio.file.Path;
+
+public class RecupFichier {
+
+	public static void main(String[] args) {
+		File fichier1 = new File("/home/etudiants/info/qchastel/eclipse-workspace/MapDebut/test.txt");
+		System.out.println(fichier1.length());
+		System.out.println(fichier1.lastModified());
+		if( fichier1.canRead())
+			System.out.println(fichier1.toPath().toString());
+	}
+}

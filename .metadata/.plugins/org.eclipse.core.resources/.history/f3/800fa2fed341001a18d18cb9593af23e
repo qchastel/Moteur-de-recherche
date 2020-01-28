@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Crawler {
+	
+	public Index i=new Index();;
+	public IndexInversé ii=new IndexInversé();;
+	public TraitementTexte tt=new TraitementTexte();
+
+	
+	public String RecupTexte(String Chemin) {
+		
+		return "";
+	}
+	
+}

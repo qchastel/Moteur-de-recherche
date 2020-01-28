@@ -1,0 +1,10 @@
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class IndexInversé {
+	
+
+	public HashMap<String,ArrayList<Integer>> indexInverse;
+
+}

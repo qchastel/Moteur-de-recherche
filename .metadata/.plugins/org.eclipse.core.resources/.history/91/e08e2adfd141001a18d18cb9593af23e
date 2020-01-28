@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Index {
+
+	public HashMap<String,ArrayList<String>> index;
+	
+	
+	public String RecupTexte(String Chemin) {
+		
+		return "";
+	}
+	
+	
+	
+	
+}
