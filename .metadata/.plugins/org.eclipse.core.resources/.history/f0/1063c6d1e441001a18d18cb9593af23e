@@ -21,16 +21,7 @@ public class Index {
 		doc.remove(doc.)
 	}
 	
-	public Document chercherDoc(String chemin) {
-		
-	for (Document document : doc) {
-		if(document.getChemin().equals(chemin))
-			return document;
-	}
-		return null;
-		
-		
-	}
+	
 
 	
 	

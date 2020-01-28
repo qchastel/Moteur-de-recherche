@@ -1,11 +1,12 @@
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 public class Index {
 
-	private TreeSet<Document> doc;
+	private ArrayList<Document> doc;
 	
 	public Index() {
-		this.doc = new TreeSet<>();
+		this.doc = new ArrayList();
 	}
 
 	public TreeSet<Document> getDoc() {
@@ -21,16 +22,7 @@ public class Index {
 		doc.remove(doc.)
 	}
 	
-	public Document chercherDoc(String chemin) {
-		
-	for (Document document : doc) {
-		if(document.getChemin().equals(chemin))
-			return document;
-	}
-		return null;
-		
-		
-	}
+	
 
 	
 	

@@ -18,19 +18,10 @@ public class Index {
 	
 	//Quentin me fait chier
 	public void replacageDoc(Document d){
-		doc.remove(doc.)
+		d.chemin
 	}
 	
-	public Document chercherDoc(String chemin) {
-		
-	for (Document document : doc) {
-		if(document.getChemin().equals(chemin))
-			return document;
-	}
-		return null;
-		
-		
-	}
+	
 
 	
 	
