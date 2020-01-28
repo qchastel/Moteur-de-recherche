@@ -1,0 +1,8 @@
+import java.util.HashMap;
+
+public class Document {
+
+	public String docNo;
+	public HashMap<String,AttributTherme>;
+	
+}

@@ -1,0 +1,7 @@
+
+public class AttributTherme {
+	
+	public int nbOccurence ;
+	public double frequence ;
+	public double tfidf;
+}

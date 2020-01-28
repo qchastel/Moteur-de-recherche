@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="GitCommitMessageComponent">
+		<list key="/home/etudiants/info/qchastel/eclipse-workspace/AtomicBlob/.git">
+			<item value="false"/>
+			<item value="qchastel &lt;qchastel@iut.univ-paris8.fr&gt;"/>
+			<item value="# WARNING: head commit changed in the meantime&#x0A;&#x0A;Creation de la classe terrain"/>
+			<item value="qchastel &lt;qchastel@iut.univ-paris8.fr&gt;"/>
+			<item value="5769bb0e8fa9710eb3c2d0554865649f89e6d727"/>
+			<item value="0"/>
+			<item value="false"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item value="500,500" key="STAGING_SASH_FORM_WEIGHT"/>
+		<item value="false" key="sortItemState"/>
+		<item value="500,500" key="HORIZONTAL_SASH_FORM_WEIGHT"/>
+	</section>
+</section>
