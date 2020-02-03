@@ -5,3 +5,10 @@ Etape de projet :
   2. Index & index inversé
   3. Modèle booléen & vectoriel
   4. Interface graphique (JavaFX / HTML + servlet)
+  
+Informations à récupérer : 
+  -DATELINE
+  -DATETIME
+  -HEADLINE
+  -HEADER
+  -TEXT
