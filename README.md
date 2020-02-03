@@ -12,3 +12,5 @@ Informations à récupérer :
   -HEADLINE
   -HEADER
   -TEXT
+
+OpenNLP- StanfordNLp
