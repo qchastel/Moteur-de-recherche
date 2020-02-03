@@ -1,34 +1,49 @@
 import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import java.util.ArrayList;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import java.io.IOException;
 
 public class Crawler {
 	
-	public static void main(String[] args) {
-		parcoursFichiers("/home/etudiants/info/ecoatelant/S4/RechercheDoc/corpusRI"); //Pour Emilie : "/home/etudiants/info/ecoatelant/S4/RechercheDoc/corpusRI"
+	public static void main(String[] args) throws SAXException, IOException {
+		//Récupération de tout les fichiers composant le moteur de recherche.
+		ArrayList<String> listeFichiers = parcoursFichiers("/home/etudiants/info/ecoatelant/S4/RechercheDoc/corpusRInew",new ArrayList<>()); //Pour Emilie : "/home/etudiants/info/ecoatelant/S4/RechercheDoc/corpusRI"
+		
+		//Création de l'index ey remplissage de ce dernier.
+		Index index = new Index();
+		for(String chemin:listeFichiers) {
+			index.ajouterDoc(new Document(chemin));
+		}
+		
+		
+		IndexInversé indexInv = new IndexInversé();
+		
 	}
-	
-	Index index = new Index();
-	IndexInversé indexInv = new IndexInversé();
-	//sax sortir xml
-	
-	public static void parcoursFichiers(String cheminMoteurRecherche) {
+
+	//Cette méthode retourne une liste avec les chemins des fichiers.
+	public static ArrayList<String> parcoursFichiers(String cheminMoteurRecherche,ArrayList<String> listeChemins) {
 		
-		Set<String> listeChemins = new HashSet<>();
-		
-	    File repertoire = new File(cheminMoteurRecherche);
-	    String liste[] = repertoire.list();
+	    File cheminCourant = new File(cheminMoteurRecherche);
+	    String liste[] = cheminCourant.list();
 	    if (liste != null) {         
 	    	for (int i = 0; i < liste.length; i++) {
 	    		File fichierCourant = new File(liste[i]);
-	    		System.out.println(repertoire+"/"+fichierCourant);
 	    		if(!fichierCourant.isFile()) {
-	    			parcoursFichiers(repertoire+"/"+fichierCourant);
-	    		} else if (fichierCourant.isFile()){
-	    			listeChemins.add(fichierCourant.list()[0]);
+	    			parcoursFichiers(cheminCourant+"/"+fichierCourant,listeChemins);
 	    		}
 	        }
+	    }else{
+	    	listeChemins.add(cheminCourant.toString());
 	    }
+	    return listeChemins;
 	}
 
 }
