@@ -14,3 +14,8 @@ Informations à récupérer :
   -TEXT
 
 OpenNLP- StanfordNLp
+
+A FAIRE  :
+TRELLO
+
+SOUTENANCE LE 3 MARS
