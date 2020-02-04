@@ -4,7 +4,7 @@ import java.util.TreeSet;
 
 public class Index {
 
-	private Set<Document> listeDocument;
+	private Set<Doc> listeDocument;
 	private TreeSet<String> index;
 	
 	public Index() {
@@ -37,12 +37,12 @@ public class Index {
 	}
 
 
-	public Set<Document> getDoc() {
+	public Set<Doc> getListeDoc() {
 		return listeDocument;
 	}
 	
 	
-	public void ajouterDoc(Document d) {
+	public void ajouterDoc(Doc d) {
 		listeDocument.add(d);
 		recuperationTexte(); //TODO
 		filtrage(); //TODO
@@ -51,13 +51,13 @@ public class Index {
 	}
 	
 	
-	public void replacageDoc(Document d){
+	public void replacageDoc(Doc d){
 		listeDocument.remove(d);
 	}
 	
 	
-	public Document chercherDoc(String chemin) {
-		for (Document document : listeDocument) {
+	public Doc chercherDoc(String chemin) {
+		for (Doc document : listeDocument) {
 		if(document.getChemin().equals(chemin))
 			return document;
 		}
