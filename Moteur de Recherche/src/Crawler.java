@@ -14,16 +14,17 @@ public class Crawler {
 	public Crawler(){
 		//Récupération de tout les fichiers composant le moteur de recherche.
 		//Pour Emilie : "/home/etudiants/info/ecoatelant/S4/RechercheDoc/corpusRI"
-		this.listeFichiers = parcoursFichiers("/home/etudiants/info/ecoatelant/S4/RechercheDoc/corpusRInew",new ArrayList<>());
+		this.listeFichiers = parcoursFichiers("/home/etudiants/info/qchastel/eclipse-workspace/corpusRInew",new ArrayList<>());
 		
 		//Initialisation de l'index et remplissage de ce dernier.
 		this.index = new Index();
-		/*for(String chemin:listeFichiers) {
+		this.indexInv = new IndexInversé();
+		for(String chemin:listeFichiers) {
 			String texteDoc = parcoursTermes(chemin);
 			index.ajouterDoc(new Doc(chemin,texteDoc));
-		}*/
+			indexInv.indexé(TraitementTexte.traitéTexte(texteDoc), chemin);
+		}
 		
-		this.indexInv = new IndexInversé();
 		
 	}
 

@@ -1,8 +1,0 @@
-import java.util.HashMap;
-
-public class Document {
-
-	public String numero;
-	public HashMap<String,AttributTherme> termes ;
-	
-}

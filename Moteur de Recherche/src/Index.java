@@ -12,6 +12,7 @@ public class Index {
 		this.index = new TreeSet<>();
 	}
 
+<<<<<<< HEAD
 	
 	private void ajouterNVTermes() {
 		// TODO Auto-generated method stub
@@ -30,6 +31,8 @@ public class Index {
 	}
 
 
+=======
+>>>>>>> 9e4a1629f06f92cffec62a5c5d5b17c412617995
 	public Set<Doc> getListeDoc() {
 		return listeDocument;
 	}
@@ -37,10 +40,13 @@ public class Index {
 	
 	public void ajouterDoc(Doc d) {
 		listeDocument.add(d);
+<<<<<<< HEAD
 		recuperationTexte(); //TODO
 		filtrage(); //TODO
 		//normalisation(); //TODO
 		ajouterNVTermes(); //TODO
+=======
+>>>>>>> 9e4a1629f06f92cffec62a5c5d5b17c412617995
 	}
 	
 	

@@ -32,4 +32,9 @@ public class TraitementTexte {
 		
 		return termes;
 	}
+
+	public static ArrayList<String> traitéTexte(String s){
+		return null;
+		
+	}
 }
