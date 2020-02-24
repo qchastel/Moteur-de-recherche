@@ -27,7 +27,9 @@ public class IndexInversé {
 			}
 		}
 	}
-	
+	 public HashMap<String, TreeSet<String>> getIndexInverse() {
+		return indexInverse;
+	}
 	
 
 }
