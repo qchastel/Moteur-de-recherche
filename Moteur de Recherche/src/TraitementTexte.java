@@ -2,6 +2,10 @@ import java.util.ArrayList;
 
 public class TraitementTexte {
 	
+	public ArrayList<String> traiterTexte(String texte) {
+		return  Lemmatisation(NonMotsVide(Normalise(RecupTermes(texte))));
+	}
+	
 	
 	public ArrayList<String> RecupTermes(String texte){
 		
@@ -25,7 +29,6 @@ public class TraitementTexte {
 	}
 	
 	public ArrayList<String> Lemmatisation (ArrayList<String> termes){
-		
 		
 		return termes;
 	}

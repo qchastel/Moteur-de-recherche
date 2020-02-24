@@ -14,13 +14,12 @@ import java.util.List;
 public class Doc{
 
 	private String chemin;
-	private HashMap<String,Frequences> termes;
+	private ArrayList<String> termes;
 	private String numero,delai,date,headLine,titre,texte;
 
 	public Doc(String c,String corps) {
 		this.chemin = c;
 		texteEnMap(corps);
-		this.termes = new HashMap<>();
 		
 	}
 
@@ -29,18 +28,18 @@ public class Doc{
 		return chemin;
 	}
 
-	public HashMap<String, Frequences> getTermes() {
+	public ArrayList<String> getTermes() {
 		return termes;
 	}
 
 	//METHODES///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//TODO
-	public HashMap<String,Frequences> texteEnMap(String texte) {
+	public ArrayList<String> texteEnMap(String texte) {
 		ArrayList<String> listeMots = new ArrayList<String>();
 		listeMots.addAll(Arrays.asList(texte.split(" ")));
 		System.out.println(listeMots.toString());
-		System.out.println("fin");
-		return null;
+		/*A METTRE DANS LE CONSTRUCTEUR*/this.termes = listeMots;
+		return listeMots;
 	}
 
 }

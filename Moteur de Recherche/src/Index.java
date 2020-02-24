@@ -18,13 +18,6 @@ public class Index {
 		
 	}
 
-
-	private void normalisation() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 	private void filtrage() {
 		// TODO Auto-generated method stub
 		
@@ -46,7 +39,7 @@ public class Index {
 		listeDocument.add(d);
 		recuperationTexte(); //TODO
 		filtrage(); //TODO
-		normalisation(); //TODO
+		//normalisation(); //TODO
 		ajouterNVTermes(); //TODO
 	}
 	
