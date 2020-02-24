@@ -6,33 +6,32 @@ import java.io.LineNumberReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.TreeSet;
 
 public class ModeleBooleen {
 	
-	//public ArrayList<String> D;
-	//public ArrayList<String> Q;
-	//public ArrayList<String> F;
 	public String requete;
-	public Index index;
 	public TraitementTexte tT;
 	public Crawler crawler;
-	public HashMap<String,TreeSet<HashMap<String,Integer>>> a = crawler.indexInv.getIndexInverse();
 	
-	public ModeleBooleen(String mots,String expressionExacte,String auMoins,String pasCeMot) {
+	/*public ModeleBooleen(String mots,String expressionExacte,String auMoins,String pasCeMot) {
 		this.requete = transformationEnReq(mots,expressionExacte,auMoins,pasCeMot);
-	}
+	}*/
 	
-	public String transformationEnReq(String mots,String expressionExacte,String auMoins,String pasCeMot) {
-		if(expressionExacte==null) {
+	public String transformationEnReq(String expressionExacte,String mots,String auMoins,String pasCeMot) {
+		ArrayList<String> nvExpressionExacte = new ArrayList<>();
+		nvExpressionExacte = tT.traiterTexte(expressionExacte);
+		if(nvExpressionExacte!=null) {
+			
 			return expressionExacte;
-		}
-		else {
+		}else {
+			
 			return mots+"^AND^"+auMoins+"^OR^"+auMoins+"^NOT^"+pasCeMot;
 		}
 	}
 	
-	public void requete(String arguments){
+	/*public void requete(String arguments){
 		ArrayList<String> motsTraites=tT.traiterTexte(arguments);
 		ArrayList<String> docChemin = new ArrayList<>();
 		
@@ -52,8 +51,39 @@ public class ModeleBooleen {
 			}
 		}
 		
-	}
+	}*/
 	
+	public HashSet<String> recherche(String requete){
+	
+		HashMap<HashMap<String,String>,Integer> incidenceTermeDocument = new HashMap<>();
+		
+		String[] decoupage,decoupageAND,decoupageOR,decoupageNOT;
+		boolean booleenDecoupage,booleenDecoupageAND,booleenDecoupageOR,booleenDecoupageNOT;
+		decoupageNOT = requete.split("^NOT^");
+		if(decoupageNOT.length > 1)
+			booleenDecoupageNOT=true;
+		else
+			booleenDecoupageNOT=false;
+		decoupageOR = requete.split("^OR^");
+		if(decoupageOR.length > 1)
+			booleenDecoupageOR=true;
+		else
+			booleenDecoupageOR=false;
+		decoupageAND = requete.split("^AND^");
+		if(decoupageOR.length > 1)
+			booleenDecoupageAND=true;
+		else
+			booleenDecoupageAND=false;
+		
+		ArrayList<String> decoupageArray = new ArrayList<>();
+		
+		decoupage = requete.split("^AND^","^OR^","^NOT^");
+		for (int i = 0; i < decoupage.length; i++) {
+			decoupageArray.add(decoupage[i]);
+		}
+		
+		
+	}
 	
 
 }
