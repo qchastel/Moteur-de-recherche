@@ -9,15 +9,13 @@ public class Lancement {
 		
 		Doc d = new Doc(chemin,c.parcoursTermes(chemin));
 		
-		ModeleBooleen mD= new ModeleBooleen();
+		//ModeleBooleen mD= new ModeleBooleen();
 	 
 	    // Créer un tableau de même taille que le nombre d'objet de ArrayList
 	    String tab[] = new String[d.getTermes().size()];
 	 
 	    // Transformer Le ArrayList en Tableau
 	    tab = d.getTermes().toArray(tab);
-		
-		mD.grep(tab);
 	}
 
 }

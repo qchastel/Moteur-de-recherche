@@ -92,5 +92,29 @@ public class Crawler {
 		
 		
 	}
+
+	public ArrayList<String> getListeFichiers() {
+		return listeFichiers;
+	}
+
+	public void setListeFichiers(ArrayList<String> listeFichiers) {
+		this.listeFichiers = listeFichiers;
+	}
+
+	public Index getIndex() {
+		return index;
+	}
+
+	public void setIndex(Index index) {
+		this.index = index;
+	}
+
+	public IndexInversé getIndexInv() {
+		return indexInv;
+	}
+
+	public void setIndexInv(IndexInversé indexInv) {
+		this.indexInv = indexInv;
+	}
 	
 }
