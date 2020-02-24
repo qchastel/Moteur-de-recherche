@@ -17,7 +17,7 @@ public class ModeleBooleen {
 	public Index index;
 	public TraitementTexte tT;
 	public Crawler crawler;
-	public HashMap<String,TreeSet<String>> a = crawler.indexInv.getIndexInverse();
+	public HashMap<String,TreeSet<HashMap<String,Integer>>> a = crawler.indexInv.getIndexInverse();
 	
 	public ModeleBooleen(String mots,String expressionExacte,String auMoins,String pasCeMot) {
 		this.requete = transformationEnReq(mots,expressionExacte,auMoins,pasCeMot);

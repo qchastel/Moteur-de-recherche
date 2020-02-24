@@ -22,7 +22,7 @@ public class Crawler {
 		for(String chemin:listeFichiers) {
 			String texteDoc = parcoursTermes(chemin);
 			index.ajouterDoc(new Doc(chemin,texteDoc));
-			indexInv.indexé(TraitementTexte.traitéTexte(texteDoc), chemin);
+			indexInv.indexation(TraitementTexte.traitéTexte(texteDoc), chemin);
 		}
 		
 		

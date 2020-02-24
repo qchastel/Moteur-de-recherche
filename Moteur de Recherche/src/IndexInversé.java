@@ -25,7 +25,7 @@ public class IndexInversé {
 				registreMots.put(mot,listeDoc);
 			}
 			//Si oui alors on trouve le mot et on regarde si dans la liste de documents, le document actuel est présent.
-			//Si oui alors on ajoute 1 à la fréquence, si non alors il raoute le document à la liste et initialise sa fréquence à 1.
+			//Si non alors on ajoute 1 à la fréquence, si non alors il raoute le document à la liste et initialise sa fréquence à 1.
 			else {
 				TreeSet<HashMap<String,Integer>> listeDocsMotCourant = registreMots.get(mot);
 				for(HashMap<String,Integer> mF : listeDocsMotCourant) { //TODO : remplacer par WHILE
