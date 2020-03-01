@@ -10,25 +10,28 @@ public class Crawler {
 	ArrayList<String> listeFichiers;
 	Index index;
 	IndexInversé indexInv;
+	TraitementTexte tT;
 	
-	public Crawler(){
-		//Récupération de tout les fichiers composant le moteur de recherche.
+	public Crawler(Index i,IndexInversé ii,TraitementTexte t){
+		//RÃ©cupÃ©ration de tout les fichiers composant le moteur de recherche.
 		//Pour Emilie : "/home/etudiants/info/ecoatelant/S4/RechercheDoc/corpusRI"
-		this.listeFichiers = parcoursFichiers("/home/etudiants/info/qchastel/eclipse-workspace/corpusRInew",new ArrayList<>());
-		
+		//this.listeFichiers = parcoursFichiers("/home/etudiants/info/qchastel/eclipse-workspace/corpusRInew",new ArrayList<>());
+		this.listeFichiers = parcoursFichiers("/Users/qchastel/eclipse-workspace/corpusRInew",new ArrayList<>());
 		//Initialisation de l'index et remplissage de ce dernier.
-		this.index = new Index();
-		this.indexInv = new IndexInversé();
+		this.index = i;
+		this.indexInv =ii;
+		tT=t;
 		for(String chemin:listeFichiers) {
 			String texteDoc = parcoursTermes(chemin);
-			index.ajouterDoc(new Doc(chemin,texteDoc));
-			indexInv.indexation(TraitementTexte.traitéTexte(texteDoc), chemin);
+			Doc d=new Doc(chemin,texteDoc);
+			index.ajouterDoc(d);
+			indexInv.indexation(tT.traiteTexte(texteDoc), d);
 		}
 		
 		
 	}
 
-	//Cette méthode retourne une liste avec les chemins des fichiers.
+	//Cette mÃ©thode retourne une liste avec les chemins des fichiers.
 	public static ArrayList<String> parcoursFichiers(String cheminMoteurRecherche,ArrayList<String> listeChemins) {
 		
 	    File cheminCourant = new File(cheminMoteurRecherche);
@@ -64,7 +67,7 @@ public class Crawler {
             if(listeTitre.getLength() == 0) {
                 listeTitre = doc.getElementsByTagName("HEADER");
 
-                // au cas où pas de titre, on prends le premier paragraphe
+                // au cas oÃ¹ pas de titre, on prends le premier paragraphe
 
                 if(listeTitre.getLength() == 0) {
                     premierP = listeMot.item(0).getTextContent();
