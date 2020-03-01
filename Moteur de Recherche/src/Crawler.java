@@ -13,16 +13,19 @@ public class Crawler {
 	
 	public Crawler(){
 		//Récupération de tout les fichiers composant le moteur de recherche.
-		//Pour Emilie : "/home/etudiants/info/ecoatelant/S4/RechercheDoc/corpusRI"
-		this.listeFichiers = parcoursFichiers("/home/etudiants/info/qchastel/eclipse-workspace/corpusRInew",new ArrayList<>());
+		//Pour Emilie - IUT :
+		//this.listeFichiers = parcoursFichiers("/home/etudiants/info/qchastel/eclipse-workspace/corpusRInew",new ArrayList<>());
+		//Pour Emilie - MAC :
+		this.listeFichiers = parcoursFichiers("/Users/ecoatelant/Documents/eclipse-workspace/Moteur-de-recherche/corpusRInew",new ArrayList<>());
 		
-		//Initialisation de l'index et remplissage de ce dernier.
+		//Initialisation de l'index, de l'index inversé et remplissage de ces derniers avec un traitement de texte créé.
 		this.index = new Index();
 		this.indexInv = new IndexInversé();
+		TraitementTexte tT= new TraitementTexte();
 		for(String chemin:listeFichiers) {
 			String texteDoc = parcoursTermes(chemin);
 			index.ajouterDoc(new Doc(chemin,texteDoc));
-			indexInv.indexation(TraitementTexte.traitéTexte(texteDoc), chemin);
+			indexInv.indexation(tT.traiteTexte(texteDoc), chemin);
 		}
 		
 		
@@ -46,7 +49,6 @@ public class Crawler {
 	    return listeChemins;
 	}
 	
-	//TODO
 	public String parcoursTermes(String cheminFichier) {
 		ArrayList<String> listeTermes = new ArrayList<>();
 		try {
@@ -58,7 +60,6 @@ public class Crawler {
 			NodeList listeTitre = doc.getElementsByTagName("HEADLINE");
 			NodeList listeMot = doc.getElementsByTagName("TEXT");
 			
-			//A VOIR SI IMPORTANT
 			String premierP = null;
             String corps = "";
             if(listeTitre.getLength() == 0) {
@@ -85,12 +86,9 @@ public class Crawler {
 			
 		}catch (Exception e) {
             e.printStackTrace();
-            System.out.println("REPERTOIRE : "+cheminFichier.toString());
             System.exit(0);
 		}
 		return null;
-		
-		
 	}
 
 	public ArrayList<String> getListeFichiers() {

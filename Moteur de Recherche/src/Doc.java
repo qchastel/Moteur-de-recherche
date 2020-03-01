@@ -81,12 +81,9 @@ public class Doc{
     }
 
 	//METHODES///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//TODO
 	public ArrayList<String> texteEnMap(String texte) {
 		ArrayList<String> listeMots = new ArrayList<String>();
 		listeMots.addAll(Arrays.asList(texte.split(" ")));
-		System.out.println(listeMots.toString());
-		/*A METTRE DANS LE CONSTRUCTEUR*/this.termes = listeMots;
 		return listeMots;
 	}
 

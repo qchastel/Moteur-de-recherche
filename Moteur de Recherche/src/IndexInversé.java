@@ -19,7 +19,7 @@ public class IndexInversé {
 			//avec un nouveau TreeSet qui contiendra tout les textes où apparaîtront ce même mot et sa fréquence initialisé à 1.
 			if(!registreMots.containsKey(mot)) {
 				TreeSet<HashMap<String,Integer>> listeDoc = new TreeSet<>();
-				HashMap<String,Integer> motEtFrequence = new HashMap<>();
+				HashMap<String,Integer> motEtFrequence = new HashMap<String,Integer>();
 				motEtFrequence.put(nomDoc, 1);
 				listeDoc.add(motEtFrequence);
 				registreMots.put(mot,listeDoc);
