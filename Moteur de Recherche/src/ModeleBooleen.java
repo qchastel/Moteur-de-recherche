@@ -11,17 +11,51 @@ import java.util.TreeSet;
 
 public class ModeleBooleen {
 	
-	public String requete;
+	public ArrayList<TreeSet<HashMap<Doc, Integer>>> and;
+	public ArrayList<TreeSet<HashMap<Doc, Integer>>> or;
+	public ArrayList<TreeSet<HashMap<Doc, Integer>>> not;
 	public TraitementTexte tT;
-	public Crawler crawler;
+	public Index i;
+	public IndexInversé iI;
 	
-	/*public ModeleBooleen(String mots,String expressionExacte,String auMoins,String pasCeMot) {
-		this.requete = transformationEnReq(mots,expressionExacte,auMoins,pasCeMot);
-	}*/
 	
+	public ModeleBooleen(TraitementTexte t, Index index,IndexInversé indexI) {
+		tT=t;
+		i=index;
+		iI=indexI;
+	}
+	
+	public ArrayList<Doc> resultat(String s1, String s2, String s3){
+		and=resultatReq(tT.traiteTexte(s1));
+		or=resultatReq(tT.traiteTexte(s2));
+		not=resultatReq(tT.traiteTexte(s3));
+		
+		for (TreeSet<HashMap<Doc, Integer>> treeSet : and) {
+			for (HashMap<Doc, Integer> hashMap : treeSet) {
+				System.out.println(hashMap.entrySet());
+					
+			
+			}
+		}
+		
+		
+		return null;
+	}
+	
+	public ArrayList<TreeSet<HashMap<Doc, Integer>>> resultatReq(ArrayList<String> al){
+		ArrayList<TreeSet<HashMap<Doc,Integer>>> listDoc=new ArrayList<>();
+		for (String string : al) {
+			listDoc.add(iI.listDoc(string));
+		}
+		
+		return listDoc;
+	}
+	
+	
+	/*
 	public String transformationEnReq(String expressionExacte,String mots,String auMoins,String pasCeMot) {
 		ArrayList<String> nvExpressionExacte = new ArrayList<>();
-		nvExpressionExacte = tT.traiterTexte(expressionExacte);
+		nvExpressionExacte = tT.traiteTexte(expressionExacte);
 		if(nvExpressionExacte!=null) {
 			
 			return expressionExacte;
@@ -30,7 +64,7 @@ public class ModeleBooleen {
 			return mots+"^AND^"+auMoins+"^OR^"+auMoins+"^NOT^"+pasCeMot;
 		}
 	}
-	
+	*/
 	/*public void requete(String arguments){
 		ArrayList<String> motsTraites=tT.traiterTexte(arguments);
 		ArrayList<String> docChemin = new ArrayList<>();
@@ -51,7 +85,8 @@ public class ModeleBooleen {
 			}
 		}
 		
-	}*/
+	}
+	
 	
 	public HashSet<String> recherche(String requete){
 	
@@ -83,7 +118,8 @@ public class ModeleBooleen {
 		}
 		
 		
+		
 	}
-	
+	*/
 
 }
