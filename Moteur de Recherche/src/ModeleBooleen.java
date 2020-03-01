@@ -11,9 +11,9 @@ import java.util.TreeSet;
 
 public class ModeleBooleen {
 	
-	public ArrayList<TreeSet<HashMap<Doc, Integer>>> and;
-	public ArrayList<TreeSet<HashMap<Doc, Integer>>> or;
-	public ArrayList<TreeSet<HashMap<Doc, Integer>>> not;
+	public ArrayList<HashMap<Doc, Integer>> and;
+	public ArrayList<HashMap<Doc, Integer>> or;
+	public ArrayList<HashMap<Doc, Integer>> not;
 	public TraitementTexte tT;
 	public Index i;
 	public IndexInversé iI;
@@ -30,20 +30,20 @@ public class ModeleBooleen {
 		or=resultatReq(tT.traiteTexte(s2));
 		not=resultatReq(tT.traiteTexte(s3));
 		
-		for (TreeSet<HashMap<Doc, Integer>> treeSet : and) {
-			for (HashMap<Doc, Integer> hashMap : treeSet) {
-				System.out.println(hashMap.entrySet());
+		
+		for (HashMap<Doc, Integer> hashMap : and) {
+			System.out.println(hashMap.entrySet());
 					
 			
-			}
 		}
+		
 		
 		
 		return null;
 	}
 	
-	public ArrayList<TreeSet<HashMap<Doc, Integer>>> resultatReq(ArrayList<String> al){
-		ArrayList<TreeSet<HashMap<Doc,Integer>>> listDoc=new ArrayList<>();
+	public ArrayList<HashMap<Doc, Integer>> resultatReq(ArrayList<String> al){
+		ArrayList<HashMap<Doc,Integer>> listDoc=new ArrayList<>();
 		for (String string : al) {
 			listDoc.add(iI.listDoc(string));
 		}
