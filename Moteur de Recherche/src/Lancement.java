@@ -16,6 +16,9 @@ public class Lancement {
 	 
 	    // Transformer Le ArrayList en Tableau
 	    tab = d.getTermes().toArray(tab);
+	    
+	    
+	    
 	}
 
 }
