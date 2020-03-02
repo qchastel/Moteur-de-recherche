@@ -1,9 +1,15 @@
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Lancement {
 	
 	public static void main(String[] args) throws IOException {
-		Crawler c = new Crawler();
+		Index index=new Index();
+		IndexInversé indexI= new IndexInversé();
+		TraitementTexte tTexte=new TraitementTexte();
+		
+		
+		Crawler c = new Crawler(index,indexI,tTexte);
 		
 		String chemin = "src/ressources/NYT20000531.0316";
 		
@@ -11,14 +17,14 @@ public class Lancement {
 		
 		//ModeleBooleen mD= new ModeleBooleen();
 	 
-	    // Créer un tableau de même taille que le nombre d'objet de ArrayList
-	    String tab[] = new String[d.getTermes().size()];
+	    // Creer un tableau de meme taille que le nombre d'objet de ArrayList
+	   // String tab[] = new String[d.getTermes().size()];
 	 
-	    // Transformer Le ArrayList en Tableau
-	    tab = d.getTermes().toArray(tab);
+	    // Transformer le ArrayList en Tableau
+	    //tab = d.getTermes().toArray(tab);
 	    
-	    //TESTS
-	    
+		ModeleBooleen mb=new ModeleBooleen(new TraitementTexte(),new Index(),new IndexInversé());
+		mb.resultat("Soldier","iran americ" , "shadow");
 	}
 
 }

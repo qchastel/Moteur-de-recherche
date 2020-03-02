@@ -10,28 +10,32 @@ public class Crawler {
 	ArrayList<String> listeFichiers;
 	Index index;
 	IndexInversé indexInv;
-	
-	public Crawler(){
-		//Récupération de tout les fichiers composant le moteur de recherche.
+	TraitementTexte tT;
+			
+	public Crawler(Index i,IndexInversé ii,TraitementTexte t){
+		//Recuperation de tout les fichiers composant le moteur de recherche.
 		//Pour Emilie - IUT :
 		//this.listeFichiers = parcoursFichiers("/home/etudiants/info/qchastel/eclipse-workspace/corpusRInew",new ArrayList<>());
 		//Pour Emilie - MAC :
 		this.listeFichiers = parcoursFichiers("/Users/ecoatelant/Documents/eclipse-workspace/Moteur-de-recherche/corpusRInew",new ArrayList<>());
+		//Pour Quentin - MAC :
+		this.listeFichiers = parcoursFichiers("/Users/qchastel/eclipse-workspace/corpusRInew",new ArrayList<>());
 		
-		//Initialisation de l'index, de l'index inversé et remplissage de ces derniers avec un traitement de texte créé.
-		this.index = new Index();
-		this.indexInv = new IndexInversé();
-		TraitementTexte tT= new TraitementTexte();
+		//Initialisation de l'index et remplissage de ce dernier.
+		this.index = i;
+		this.indexInv =ii;
+		tT=t;
 		for(String chemin:listeFichiers) {
 			String texteDoc = parcoursTermes(chemin);
-			index.ajouterDoc(new Doc(chemin,texteDoc));
-			indexInv.indexation(tT.traiteTexte(texteDoc), chemin);
+			Doc d=new Doc(chemin,texteDoc);
+			index.ajouterDoc(d);
+			indexInv.indexation(tT.traiteTexte(texteDoc), d);
 		}
 		
 		
 	}
 
-	//Cette méthode retourne une liste avec les chemins des fichiers.
+	//Cette mthode retourne une liste avec les chemins des fichiers.
 	public static ArrayList<String> parcoursFichiers(String cheminMoteurRecherche,ArrayList<String> listeChemins) {
 		
 	    File cheminCourant = new File(cheminMoteurRecherche);
@@ -60,12 +64,12 @@ public class Crawler {
 			NodeList listeTitre = doc.getElementsByTagName("HEADLINE");
 			NodeList listeMot = doc.getElementsByTagName("TEXT");
 			
-			String premierP = null;
+			String premierP;
             String corps = "";
             if(listeTitre.getLength() == 0) {
                 listeTitre = doc.getElementsByTagName("HEADER");
 
-                // au cas où pas de titre, on prends le premier paragraphe
+                // au cas oÃ¹ pas de titre, on prends le premier paragraphe
 
                 if(listeTitre.getLength() == 0) {
                     premierP = listeMot.item(0).getTextContent();
