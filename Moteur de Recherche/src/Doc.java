@@ -19,10 +19,14 @@ public class Doc{
 	private String numero,delai,date,headLine,titre,texte;
 	private Map<String,Double> poidsVecteur = null;
 
-	public Doc(String c,String corps) {
-		this.chemin = c;
+	public Doc(String nom,String corps) {
+		this.chemin = nom;
 		this.termes=texteEnMap(corps);
 		
+	}
+
+	public void setChemin(String chemin) {
+		this.chemin = chemin;
 	}
 
 	//GETTER/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

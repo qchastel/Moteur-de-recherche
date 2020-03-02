@@ -7,16 +7,12 @@ import java.util.TreeMap;
 
 public class ModeleVectoriel {
 	
-	private boolean fTfidf = false;
+	private boolean fTfidf = true;
 	protected Doc[] fDocuments = null;
 	
-	protected ModeleVectoriel() {
-		throw new UnsupportedOperationException( );
-	}
+	protected ModeleVectoriel() {}
 	
-	protected ModeleVectoriel(Doc[] documents) {
-        throw new UnsupportedOperationException();
-    }
+	protected ModeleVectoriel(Doc[] documents) {}
 	
 	public static void setTfIdfWeight(Doc document, String term, Doc[] documents ) {
         double tf = document.calculMaxFreq() == 0 ? 0.0 : ( double ) document.calculFreq(term) / document.calculMaxFreq();
@@ -49,13 +45,16 @@ public class ModeleVectoriel {
     }
 	
 	public double sim(Doc document, Doc req) {
+		System.out.println(document);
         Set<String> termes = new HashSet<String>();
         for (String terme : document.getTermes()) {
             termes.add(terme);
+            System.out.println(terme);
         }
         for (String terme : req.getTermes()) {
             termes.add(terme);
         }
+        System.out.println("lo:"+termes.toString());
         double numerator = 0.0;
         double denominator1 = 0.0;
         double denominator2 = 0.0;
@@ -76,8 +75,7 @@ public class ModeleVectoriel {
         return numerator / ( Math.sqrt( denominator1 ) * Math.sqrt( denominator2 ) );
     }
 	
-	public SortedMap<Doc,Double> getDocuments(String queryString, boolean stem) {
-        
+	public SortedMap<Doc,Double> getDocuments(String queryString) {
         Doc query = new Doc("query",queryString);
         if (fTfidf) {
             Doc[] documents = new Doc[fDocuments.length + 1];

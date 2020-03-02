@@ -8,6 +8,7 @@ import org.w3c.dom.NodeList;
 public class Crawler {
 	
 	ArrayList<String> listeFichiers;
+	ArrayList<Doc> listeDoc;
 	Index index;
 	IndexInversé indexInv;
 	TraitementTexte tT;
@@ -15,24 +16,34 @@ public class Crawler {
 	public Crawler(Index i,IndexInversé ii,TraitementTexte t){
 		//Recuperation de tout les fichiers composant le moteur de recherche.
 		//Pour Emilie - IUT :
-		//this.listeFichiers = parcoursFichiers("/home/etudiants/info/qchastel/eclipse-workspace/corpusRInew",new ArrayList<>());
+		this.listeFichiers = parcoursFichiers("/home/etudiants/info/ecoatelant/S4/RechercheDoc/corpusRInew",new ArrayList<>());
 		//Pour Emilie - MAC :
-		this.listeFichiers = parcoursFichiers("/Users/ecoatelant/Documents/eclipse-workspace/Moteur-de-recherche/corpusRInew",new ArrayList<>());
+		//this.listeFichiers = parcoursFichiers("/Users/ecoatelant/Documents/eclipse-workspace/Moteur-de-recherche/corpusRInew",new ArrayList<>());
 		//Pour Quentin - MAC :
-		this.listeFichiers = parcoursFichiers("/Users/qchastel/eclipse-workspace/corpusRInew",new ArrayList<>());
+		//this.listeFichiers = parcoursFichiers("/Users/qchastel/eclipse-workspace/corpusRInew",new ArrayList<>());
 		
 		//Initialisation de l'index et remplissage de ce dernier.
 		this.index = i;
 		this.indexInv =ii;
 		tT=t;
+		this.listeDoc = new ArrayList<>();
 		for(String chemin:listeFichiers) {
 			String texteDoc = parcoursTermes(chemin);
 			Doc d=new Doc(chemin,texteDoc);
+			this.listeDoc.add(d);
 			index.ajouterDoc(d);
 			indexInv.indexation(tT.traiteTexte(texteDoc), d);
 		}
 		
 		
+	}
+
+	public ArrayList<Doc> getListeDoc() {
+		return listeDoc;
+	}
+
+	public void setListeDoc(ArrayList<Doc> listeDoc) {
+		this.listeDoc = listeDoc;
 	}
 
 	//Cette mthode retourne une liste avec les chemins des fichiers.
